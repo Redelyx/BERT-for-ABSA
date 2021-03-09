@@ -1,14 +1,18 @@
-#python main.py ae laptop_pt laptop pt_ae 6 0
 import sys
 import os
 import config as c
 import eval.eval_prova as eval
+import torch
 
 print("Running " + sys.argv[0])
 
-if c.cuda:
-    print("Using cuda" + config.cuda)
-
+#print(f"Using cuda {c.cuda}")
+if torch.cuda.is_available():
+    cuda_id = torch.cuda.current_device()
+    print(f"Using gpu: {torch.cuda.get_device_name(cuda_id)}")
+else:
+    print("Using cpu")
+    
 data_dir = f"{c.task}/{c.domain}"
 print(data_dir)
 
@@ -46,7 +50,7 @@ for run in range(1, int(c.runs)+1):
     else:
         print()	
 
-print("Done!")	
+print("***** Done! *****")	
 #--- result ---
 if c.eval == "y":
     eval.evaluate(c.tasks, c.berts, c.domains, c.runs)

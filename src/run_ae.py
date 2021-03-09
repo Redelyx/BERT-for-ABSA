@@ -43,7 +43,6 @@ def warmup_linear(x, warmup=0.002):
     return 1.0 - x
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-logging.info(torch.cuda.is_available())
 
 def train(args):
     # ae laptop best values

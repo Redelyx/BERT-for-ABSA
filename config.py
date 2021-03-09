@@ -6,7 +6,7 @@ domain = "laptop"   #laptop or rest
 run_dir = "pt_ae"   #pt_ae or pt_asc
 eval = "y"          #if y the evaluation will run after the training
 runs = 1
-cuda = 0
+#cuda = 0
 
 #eval
 tasks=["ae"]
