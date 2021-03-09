@@ -43,6 +43,7 @@ def warmup_linear(x, warmup=0.002):
     return 1.0 - x
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+logging.info(torch.cuda.is_available())
 
 def train(args):
     # ae laptop best values
@@ -78,6 +79,8 @@ def train(args):
     train_sampler = RandomSampler(train_data)
     train_dataloader = DataLoader(train_data, sampler=train_sampler, batch_size=args.train_batch_size)
     
+    logger.info("***** End of training *****")
+
     #>>>>> validation
     if args.do_valid:
         valid_examples = processor.get_dev_examples(args.data_dir)
@@ -99,6 +102,8 @@ def train(args):
 
         best_valid_loss=float('inf')
         valid_losses=[]
+        
+        logger.info("***** End of validations *****")
     #<<<<< end of validation declaration
 
     model = BertForABSA.from_pretrained(modelconfig.MODEL_ARCHIVE_MAP[args.bert_model], num_labels = len(label_list), dropout=dropout, epsilon=epsilon)
