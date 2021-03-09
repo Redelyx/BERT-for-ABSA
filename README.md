@@ -11,7 +11,7 @@ Aspect Extraction (AE): given a review sentence ("The retina display is great.")
 
 Aspect Sentiment Classification (ASC): given an aspect ("retina display") and a review sentence ("The retina display is great."), detect the polarity of that aspect (positive).
 
-## Running
+## Running (see below to run all the code in python)
 
 Place laptop and restaurant post-trained BERTs into ```pt_model/laptop_pt``` and ```pt_model/rest_pt```, respectively. The post-trained Laptop weights can be download [here](https://drive.google.com/file/d/1io-_zVW3sE6AbKgHZND4Snwh-wi32L4K/view?usp=sharing) and restaurant [here](https://drive.google.com/file/d/1TYk7zOoVEO8Isa6iP0cNtdDFAUlpnTyz/view?usp=sharing).
 
@@ -32,6 +32,16 @@ Evaluation wrapper code has been written in ipython notebook ```eval/eval.ipynb`
 AE ```eval/evaluate_ae.py``` additionally needs Java JRE/JDK to be installed.
 
 Open ```result.ipynb``` and check the results.
+
+
+## Run in Python (iPython Notebook not needed)
+
+After  placing  laptop and restaurant post-trained BERTs into the right folders, edit ```src/modelconfig.py```:
+edit  ```../pt_model/laptop_pt/``` to ```pt_model/laptop_pt/``` and ```../pt_model/rest_pt/``` to ```pt_model/rest_pt/```.
+
+Now you can start the training with ```run_from_config.py```. You don't need to add any argument.
+To edit your preferences open ```config.py``` and insert your values.
+If the value "eval" is set to "y", the evaluation will start after the training is over. Otherwise you can run the evaluation running ```result.py```.
 
 ## Citation
 
