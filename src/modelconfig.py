@@ -16,6 +16,6 @@
 #define your pre-trained (post-trained) models here with their paths.
 
 MODEL_ARCHIVE_MAP = {
-    'laptop_pt': '../pt_model/laptop_pt/',
-    'rest_pt': '../pt_model/rest_pt/',  
+    'laptop_pt': '../pt_model/laptop_pt/',  #pt_model/laptop_pt/ to run in python
+    'rest_pt': '../pt_model/rest_pt/',      #pt_model/rest_pt/ to run in python
 }
